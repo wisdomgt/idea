@@ -1,0 +1,1 @@
+/usr/share/logstash/bin/logstash --path.settings /etc/logstash -e 'input { stdin { } } filter{ grok { match => { "message" => "%{PATH:fullpath}" }} grok { match => { "fullpath" => "%{WORD:driveletter}\:.*" }}} output { stdout {} }'
